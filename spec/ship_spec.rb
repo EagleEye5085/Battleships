@@ -15,20 +15,20 @@ RSpec.describe Ship do
     expect(cruiser.health).to eq(3)
   end
 
-  it 'health and ship_length exist' do
+  it 'Sunk? returns false' do
     cruiser = Ship.new("Cruiser", 3)
 
     expect(cruiser.sunk?).to eq(false)
   end
 
-  it 'health and ship_length exist' do
+  it 'hit decreases health' do
     cruiser = Ship.new("Cruiser", 3)
     cruiser.hit
 
     expect(cruiser.health).to eq(2)
   end
 
-  it 'health and ship_length exist' do
+  it 'hit causes sunk? to return true' do
     cruiser = Ship.new("Cruiser", 3)
     3.times do
       cruiser.hit
