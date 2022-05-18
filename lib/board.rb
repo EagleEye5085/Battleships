@@ -29,6 +29,8 @@ class Board
 
     if ship.ship_length != coordinates.length
       false
+    elsif coordinate_empty.include?(false) == true
+     false
     elsif letters.uniq.length == 1 && (numbers.min..numbers.max).to_a == numbers
       true
     elsif numbers.uniq.length == 1 && (letters.min..letters.max).to_a == letters
@@ -37,7 +39,6 @@ class Board
       false
     elsif (numbers.min..numbers.max).to_a == numbers && (letters.min..letters.max).to_a == letters
       false
-    elsif coordinate_empty
     else
       false
     end
