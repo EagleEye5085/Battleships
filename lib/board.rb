@@ -25,16 +25,25 @@ class Board
   def valid_placement?(ship, coordinates)
     letters = coordinates.map { |coordinate| coordinate[0]}
     numbers = coordinates.map { |coordinate| coordinate[1].to_i}
-    coordinate_empty? = coordinates.map { |coordinate| @cells[coordinate].empty?}
+    coordinate_empty = coordinates.map { |coordinate| @cells[coordinate].empty?}
 
-    if
+    if ship.ship_length != coordinates.length
+      false
+    elsif letters.uniq.length == 1 && (numbers.min..numbers.max).to_a == numbers
+      true
+    elsif numbers.uniq.length == 1 && (letters.min..letters.max).to_a == letters
+      true
+    elsif letters.uniq.length == 1 && numbers.uniq.length == 1
+      false
+    elsif (numbers.min..numbers.max).to_a == numbers && (letters.min..letters.max).to_a == letters
+      false
+    else
+      false
+    end
   end
 
 
-
 end
-
-
 
 
 #h.each Call block once for each key in hash h, passing the key-value pair as parameters (option 1)
