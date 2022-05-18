@@ -22,6 +22,15 @@ class Board
     @cells.has_key?(coordinate)
   end
 
+  def valid_placement?(ship, coordinates)
+    letters = coordinates.map { |coordinate| coordinate[0]}
+    numbers = coordinates.map { |coordinate| coordinate[1].to_i}
+    coordinate_empty? = coordinates.map { |coordinate| @cells[coordinate].empty?}
+
+    if
+  end
+
+
 
 end
 
