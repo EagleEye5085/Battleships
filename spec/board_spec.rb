@@ -12,4 +12,12 @@ RSpec.describe Board do
     expect(board.cells).to include("A1")
     expect(board.cells).to include("D4")
   end
+
+  it 'valid_coordinate checks if coordinates exist in cells' do
+    board = Board.new
+    board.create_cells
+
+    expect(board.valid_coordinate?("A1")).to be(true)
+    expect(board.valid_coordinate?("A5")).to be(false)
+  end
 end

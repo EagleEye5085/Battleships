@@ -5,7 +5,7 @@ class Board
   attr_reader :cells
 
   def initialize
-   @cells = {}
+    @cells = {}
   end
 
  def create_cells
@@ -17,6 +17,11 @@ class Board
       end
     end
   end
+
+  def valid_coordinate?(coordinate)
+    @cells.has_key?(coordinate)
+  end
+
 
 end
 
