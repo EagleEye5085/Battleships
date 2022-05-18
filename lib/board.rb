@@ -37,15 +37,15 @@ class Board
       false
     elsif (numbers.min..numbers.max).to_a == numbers && (letters.min..letters.max).to_a == letters
       false
+    elsif coordinate_empty
     else
       false
     end
   end
 
-
+  def place(ship, coordinates)
+    coordinates.map do |coordinate|
+      @cells[coordinate].place_ship(ship)
+    end
+  end
 end
-
-
-#h.each Call block once for each key in hash h, passing the key-value pair as parameters (option 1)
-#h.each_key Call block once for each key in hash h, passing the key as a parameter
-#h.each_value Call block once for each key in hash h, passing the value as a parameter
