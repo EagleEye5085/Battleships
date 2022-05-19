@@ -28,17 +28,16 @@ attr_accessor :comp_choice, :player_choice, :player_chosen, :comp_chosen
     @comp_chosen = []
   end
 
-  def check_choice(choice, board)
-  #method
-  end
-
   def report
   #method
   end
 
   def display(top_board, bottom_board)
-    puts top_board.render #comp board
-    puts '*********'
-    puts bottom_board.render(true) #player board
+    comp_board = top_board.render
+    fancy_divider = '*********'
+    player_board = bottom_board.render(true)
+    output = "#{comp_board}#{fancy_divider}\n#{player_board}"
+    puts output
+    output
   end
 end
