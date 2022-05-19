@@ -29,6 +29,7 @@ RSpec.describe Board do
 
     expect(board.valid_placement?(cruiser, ["A1", "A2"])).to be(false)
     expect(board.valid_placement?(submarine, ["A2", "A3", "A4"])).to be(false)
+    expect(board.valid_placement?(cruiser, ["B1", "B2", "B3"])).to be(true)
   end
 
   it 'valid_placement IDs incorrect placements based on non consecutive coordinates' do
