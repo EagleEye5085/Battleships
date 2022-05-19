@@ -49,4 +49,8 @@ class Board
       @cells[coordinate].place_ship(ship)
     end
   end
+
+  def render(bool = nil)
+    p "  1 2 3 4 \n" + "A #{cells["A1"].render(bool)} #{cells["A2"].render(bool)} #{cells["A3"].render(bool)} #{cells["A4"].render(bool)} \n" + "B #{cells["B1"].render(bool)} #{cells["B2"].render(bool)} #{cells["B3"].render(bool)} #{cells["B4"].render(bool)} \n" + "C #{cells["C1"].render(bool)} #{cells["C2"].render(bool)} #{cells["C3"].render(bool)} #{cells["C4"].render(bool)} \n" + "D #{cells["D1"].render(bool)} #{cells["D2"].render(bool)} #{cells["D3"].render(bool)} #{cells["D4"].render(bool)} \n"
+  end
 end
