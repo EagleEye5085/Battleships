@@ -17,7 +17,28 @@
 # User is informed when they have already fired on a coordinate
 # Board is updated after a turn
 
-def initialize
-end
+class Turn
 
-def
+attr_accessor :comp_choice, :player_choice, :player_chosen, :comp_chosen
+
+  def initialize(player_choice, comp_choice)
+    @comp_choice = comp_choice
+    @player_choice = player_choice
+    @player_chosen = []
+    @comp_chosen = []
+  end
+
+  def check_choice(choice, board)
+  #method
+  end
+
+  def report
+  #method
+  end
+
+  def display(top_board, bottom_board)
+    puts top_board.render #comp board
+    puts '*********'
+    puts bottom_board.render(true) #player board
+  end
+end

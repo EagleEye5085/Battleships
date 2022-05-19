@@ -1,6 +1,7 @@
 require './lib/ship'
 require './lib/cells'
 require './lib/board'
+require './lib/turn'
 
 
 system 'clear'
@@ -43,3 +44,13 @@ elsif intro == "n"
   Prepare to meet Davy Jones, ye be in Davy Jones' locker by sundown!"
 end
 # require 'pry'; binding.pry
+# player_board = Board.new
+# comp_board = Board.new
+# cruiser = Ship.new("Cruiser", 3)
+#
+# player_board.create_cells
+# comp_board.create_cells
+# player_board.place(cruiser, ["A1", "A2", "A3"])
+# comp_board.place(cruiser, ["A1", "A2", "A3"])
+#   turn = Turn.new("A3", "B2")
+# turn.display(comp_board,player_board)
