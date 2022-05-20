@@ -25,7 +25,7 @@ class Cell
     end
   end
 
-  def fire_upon#not done
+  def fire_upon
       @shot = true
       if empty? == false
         @ship.hit
