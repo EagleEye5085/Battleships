@@ -9,7 +9,9 @@ class Board
   end
 
  def create_cells
-   @range1 = 1..4
+   # puts "please choose length of grid 4-25"
+   # length = gets.chomp.to_i
+   @range1 = 1..4 #length
    @range2 = "A".."D"
    @range2.each do |letter|
      @range1.each do |number|
