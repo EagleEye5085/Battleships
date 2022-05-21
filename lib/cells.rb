@@ -36,10 +36,10 @@ class Cell
     @render_bool = bool
     if fired_upon? == true && empty? == false && ship.sunk? == true
       return "X"
-    elsif @render_bool == true  && empty? == false
-      return "S"
     elsif fired_upon? == true && empty? == false
       return "H"
+    elsif @render_bool == true  && empty? == false
+      return "S"
     elsif fired_upon? == true && empty? == true
       return "M"
     else
