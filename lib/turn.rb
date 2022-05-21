@@ -1,19 +1,19 @@
-
+require './lib/input'
 
 class Turn
 
-attr_accessor :player_board, :comp_board, :computer, :player
+attr_accessor :player_board, :comp_board
 
   def initialize
-  
-    # @computer = Computer.new(@comp_board)
-    # @player = Player.new(@player_board)
+    @input = Input.new
+    @comp_board = @input.computer_board
+    @player_board = @input.player_board
   end
 
   #
 
   def call_shot
-      shot_called = $stdin.gets.chomp
+      shot_called = gets.chomp
       if @comp_board.valid_coordinate?(shot_called) && @comp_board.cells[shot_called].fired_upon? == false
         take_shot(shot_called)
       else
