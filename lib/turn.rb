@@ -1,34 +1,38 @@
-
+require './lib/input'
 
 class Turn
 
-attr_accessor :player_board, :comp_board, :computer, :player
+attr_accessor :player_board, :comp_board,
 
   def initialize
-  
-    # @computer = Computer.new(@comp_board)
-    # @player = Player.new(@player_board)
+    @input = Input.new
+    @comp_board = @input.computer_board
+    @player_board = @input.player_board
   end
 
-  #
-
   def call_shot
-      shot_called = $stdin.gets.chomp
+    loop do
+      shot_called = gets.chomp.upcase
       if @comp_board.valid_coordinate?(shot_called) && @comp_board.cells[shot_called].fired_upon? == false
         take_shot(shot_called)
       else
-        p "Invalid"
+        p "Invalid shot."
       end
     end
-    #require "pry"; binding.pry
+  end
 
 
   def take_shot(shot)
     @computer_board.cells[shot].fire_upon
-    if @computer_board.cells[shot].empty? ==false
-      p "You Hit!"
-      # if fjyfg
-      # end
+    if @computer_board.cells[shot].empty? == false
+      p "ARRR, Shiver me timbers! That's going to leave a mark!"
+    elsif @computer_board.cells[shot].empty? == true
+      p "You Missed! You'll have to aim better than that, you Scurvy dog!"
+    elsif @computer_board.cells[shot].ship.sunk? == true
+      p "Ye sunk me ship!! "
+    else
+      "What are you doing?"
+      call_shot
     end
   end
 
