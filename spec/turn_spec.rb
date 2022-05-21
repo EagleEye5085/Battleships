@@ -17,6 +17,3 @@ RSpec.describe Turn do
 
     expect(turn.display(comp_board,player_board)).to eq("~^~^~ Computer Board‍ ~^~^~\n  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n~^~^~ Player Board ~^~^~\n  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n~^~^~^~^~^~^~^~^~~^~^~^~")
   end
-
-
-end

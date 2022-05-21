@@ -36,6 +36,22 @@ attr_accessor :player_board, :comp_board,
     end
   end
 
+  def take_shot_computer
+    shot = @player_board.cells.keys.sample()
+    loop do
+      if @comp_board.cells[shot].fired_upon? == false
+        @player_board.cells[shot].fire_upon
+      end
+    end
+    if @player_board.cells[shot].empty? == false
+      p "Ye be one step closer to the briney deep!"
+    elsif @player_board.cells[shot].empty? == true
+      p "Aargh, I'll get you next time!"
+    elsif @player_board.cells[shot].ship.sunk? == true
+      p "See you in Davy Jones' locker!"
+    end
+  end
+
   def display(top_board, bottom_board)
     fancy_divider1 = '~^~^~ Computer Board‍ ~^~^~'
     comp_board = top_board.render
