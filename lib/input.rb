@@ -3,7 +3,7 @@ require './lib/ship'
 
 class Input
 
-  attr_reader
+  attr_reader :computer_board, :player_board
 
   def initialize
     @player_board = Board.new
