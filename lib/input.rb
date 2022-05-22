@@ -3,7 +3,8 @@ require './lib/ship'
 
 class Input
 
-  attr_reader :computer_board, :player_board
+
+  attr_reader :computer_board, :player_board, :player_cruiser, :player_submarine, :computer_cruiser, :computer_submarine
 
   def initialize
     @player_board = Board.new
@@ -18,12 +19,12 @@ class Input
   end
 
   def ship_placement
-    puts " please select ship positions.\n" +
-    "The Cruiser is three grids long.\n" +
-    "The Sub is two grids long."
+    puts "        SELECT YOUR SHIP POSITIONS
+    => The Cruiser is three coordinates long.
+    => The Sub is two coordinates long."
     puts @player_board.render(true)
-    puts "Enter your selections one at a time\n" + "in a line "
-    puts "Place the Cruiser. It is three grids long."
+    puts "Type your coordinates below one at a time and then hit ENTER after each coordinate.
+    => Place the Cruiser. It is three coordinates long:"
 
     loop do
       player_cruiser_coordinates = []
@@ -46,7 +47,7 @@ class Input
       end
     end
 
-    puts "Place the sub. It is two grids long."
+    puts "    => Place the Submarine. It is two coordinates long:"
     puts @player_board.render(true)
 
     loop do
