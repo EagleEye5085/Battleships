@@ -32,7 +32,7 @@ attr_accessor :player_board, :comp_board, :input
     elsif @comp_board.cells[shot].empty? == true
       p "You Missed! You'll have to aim better than that, you Scurvy dog!"
     elsif @comp_board.cells[shot].empty? == false
-      p "ARRR, Shiver me timbers! That's going to leave a mark!"
+      p "ARRR you hit my ship! Shiver me timbers, that's going to leave a mark!"
     else
       p "What are you doing?"
     end
@@ -48,11 +48,11 @@ attr_accessor :player_board, :comp_board, :input
       end
     end
     if @player_board.cells[shot].empty? == false && @player_board.cells[shot].ship.sunk? == true
-      p "See you in Davy Jones' locker!"
+      p "I've sunk your ship. See you in Davy Jones' locker!"
     elsif @player_board.cells[shot].empty? == false
-      p "Ye be one step closer to the briney deep!"
+      p "A Hit! Ye be one step closer to the briney deep!"
     elsif @player_board.cells[shot].empty? == true
-      p "Aargh, I'll get you next time!"
+      p "Aargh I missed, I'll get you next time!"
     end
   end
 
