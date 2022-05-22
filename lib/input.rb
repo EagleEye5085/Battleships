@@ -3,6 +3,7 @@ require './lib/ship'
 
 class Input
 
+
   attr_reader :computer_board, :player_board, :player_cruiser, :player_submarine, :computer_cruiser, :computer_submarine
 
   def initialize

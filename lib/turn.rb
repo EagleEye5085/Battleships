@@ -1,9 +1,11 @@
 require './lib/input'
+
 require './lib/cells'
 
 class Turn
 
 attr_accessor :player_board, :comp_board, :input
+
 
   def initialize
     @input = Input.new
@@ -12,9 +14,11 @@ attr_accessor :player_board, :comp_board, :input
   end
 
   def call_shot
+
     loop do
       p "Type in a coordinate to fire upon, if ye be feeling lucky."
       shot_called = gets.chomp.upcase
+
       if @comp_board.valid_coordinate?(shot_called) && @comp_board.cells[shot_called].fired_upon? == false
         take_shot(shot_called)
         break
