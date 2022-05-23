@@ -74,6 +74,7 @@ Prepare to meet Davy Jones, ye be in Davy Jones' locker by sundown!"
   end
 
   def gameloop
+    @turn.input.create_boards
     @turn.input.ship_placement
     @turn.input.computer_place_ship
     loop do

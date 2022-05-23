@@ -7,15 +7,41 @@ class Input
   attr_reader :computer_board, :player_board, :player_cruiser, :player_submarine, :computer_cruiser, :computer_submarine
 
   def initialize
-    @player_board = Board.new
-    @player_board.create_cells
-    @computer_board = Board.new
-    @computer_board.create_cells
     @player_cruiser = Ship.new('cruiser', 3)
     @player_submarine = Ship.new('submarine', 2)
     @computer_cruiser = Ship.new('cruiser', 3)
     @computer_submarine = Ship.new('submarine', 2)
 
+  end
+
+  def create_boards
+    range1 = 0
+    range2 = ""
+    p "select length"
+    loop do
+    range1 = gets.chomp.to_i
+    if range1 > 10 || range1 < 4
+      p "not correct"
+      redo
+    else
+      break
+    end
+  end
+
+  loop do
+    p "select height"
+  range2 = gets.chomp.upcase
+  if range2.ord > 91 || range2.ord < 68 || range2.length >=2
+    p "not between D and Z"
+    redo
+  else
+    break
+  end
+end
+    @player_board = Board.new(range1, range2)
+    @player_board.create_cells
+    @computer_board = Board.new(range1, range2)
+    @computer_board.create_cells
   end
 
   def ship_placement
