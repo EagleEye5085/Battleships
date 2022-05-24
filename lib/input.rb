@@ -210,11 +210,11 @@ end
 
         else
           @computer_board.place(ship, computer_ship_coordinates)
-          puts "Computer placed ship!"
           break
         end
       end
     end
+      puts "Computer placed ship!"
   end
 
 end

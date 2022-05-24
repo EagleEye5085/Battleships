@@ -11,12 +11,4 @@ RSpec.describe Input do
 
     expect(input).to be_instance_of(Input)
   end
-
-  it "it creates ships" do
-    input = Input.new
-    input.total_cells = 16
-    input.create_ships
-
-    expect(input.player_ships).to be_instance_of(Ship)
-  end
 end
