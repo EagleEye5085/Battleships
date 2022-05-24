@@ -75,17 +75,20 @@ Prepare to meet Davy Jones, ye be in Davy Jones' locker by sundown!"
 
   def gameloop
     @turn.input.create_boards
+    @turn.input.create_ships
     @turn.input.ship_placement
     @turn.input.computer_place_ship
+    @turn.set_boards
     loop do
       system 'clear'
-      @turn.display(@turn.comp_board, @turn.player_board)
+      @turn.display(@turn.input.computer_board, @turn.input.player_board)
       @turn.call_shot
       sleep(3)
       @turn.take_shot_computer
       sleep(3)
       system 'clear'
-      if @turn.input.player_cruiser.sunk? == true && @turn.input.player_submarine.sunk? == true || @turn.input.computer_cruiser.sunk? == true && @turn.input.computer_submarine.sunk? == true
+        # require "pry"; binding.pry
+      if @turn.input.player_ships.all? {|ship| ship.sunk? == true} == true || @turn.input.comp_ships.all? {|ship| ship.sunk? == true} == true
         break
       end
     end
@@ -93,11 +96,11 @@ Prepare to meet Davy Jones, ye be in Davy Jones' locker by sundown!"
   end
 
   def outro
-    if @turn.input.player_cruiser.sunk? == true && @turn.input.player_submarine.sunk? == true
+    if @turn.input.player_ships.all? {|ship| ship.sunk? == true} == true
       puts "HAHAHA, Enjoy the briney deep! You never should have crossed swords with our fearsome crew!.
                                      x-x-x-x-GAME OVER-x-x-x-x
                   (Ye shall be scrubbing decks in Davy Jones' locker for eternity)"
-    elsif @turn.input.computer_cruiser.sunk? == true && @turn.input.computer_submarine.sunk? == true
+    elsif @turn.input.comp_ships.all? {|ship| ship.sunk? == true} == true
       puts "
                 You have saved the Queen's gold. You will be rewarded handsomely!
                                   ~~~~~~~~YOU WON!!!~~~~~~~~~
