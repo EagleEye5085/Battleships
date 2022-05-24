@@ -70,8 +70,8 @@ def create_ships
           puts "Please give a length for #{ship_name}, you may select between 1-4:"
           loop do
             ship_length = gets.chomp.to_i
-            if ship_length >= 5
-            puts "#{ship_name} is too long, try again."
+            if ship_length < 1 || ship_length >= 5
+            puts "#{ship_name} is not the correct size, try again."
             redo
             else
               @player_ships << new_ship = Ship.new(ship_name, ship_length)
@@ -95,7 +95,7 @@ def create_ships
         puts "Please give a length for #{ship_name}, you may select between 1-4:"
         loop do
           ship_length = gets.chomp.to_i
-          if ship_length >= 5
+          if ship_length < 1 || ship_length >= 5
           puts "#{ship_name} is too long, try again."
           redo
           else
@@ -118,7 +118,7 @@ def create_ships
         puts "Please give a length for #{ship_name}, you may select between 1-4:"
         loop do
           ship_length = gets.chomp.to_i
-          if ship_length >= 5
+          if ship_length < 1 || ship_length >= 5
           puts "#{ship_name} is too long, try again."
           redo
           else
@@ -142,7 +142,7 @@ def create_ships
         puts "Please give a length for #{ship_name}, you may select between 1-4:"
         loop do
           ship_length = gets.chomp.to_i
-          if ship_length >= 5
+          if ship_length < 1 || ship_length >= 5
           puts "#{ship_name} is too long, try again."
           redo
           else
@@ -158,6 +158,8 @@ end
 
 
   def ship_placement
+
+    system 'clear'
 
     puts "        SELECT YOUR SHIP POSITIONS"
     puts @player_board.render(true)
@@ -178,11 +180,12 @@ end
         end
       end
 
-      if @player_board.valid_placement?(ship, player_ship_coordinates.min..player_ship_coordinates.max) == false
+      if @player_board.valid_placement?(ship, player_ship_coordinates) == false
         puts "#{ship.name} placement is invalid"
       else
-        @player_board.place(ship, player_ship_coordinates.min..player_ship_coordinates.max)
+        @player_board.place(ship, player_ship_coordinates)
         puts "#{ship.name} placement successful!"
+        system 'clear'
         break
       end
     end
@@ -214,7 +217,8 @@ end
         end
       end
     end
-      puts "Computer placed ship!"
+    puts "Computer placed ships!"
+    sleep (2)
   end
 
 end

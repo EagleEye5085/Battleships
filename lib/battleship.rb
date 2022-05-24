@@ -14,11 +14,11 @@ class Battleship
   def intro
     system 'clear'
     puts "
-    ===================================================================
-    ===================================================================
-    Avast ye, salty dog! Ye be haul'n vast stores of the Queen's booty!
-    If you lily-livered son of a biscuit eater's dont hand over your
-    coffers, ye be given no quarter!"
+===================================================================
+===================================================================
+Avast ye, salty dog! Ye be haul'n vast stores of the Queen's booty!
+If you lily-livered son of a biscuit eater's dont hand over your
+coffers, ye be given no quarter!"
 
     puts "
                   |    |    |
