@@ -87,7 +87,6 @@ Prepare to meet Davy Jones, ye be in Davy Jones' locker by sundown!"
       @turn.take_shot_computer
       sleep(3)
       system 'clear'
-        # require "pry"; binding.pry
       if @turn.input.player_ships.all? {|ship| ship.sunk? == true} == true || @turn.input.comp_ships.all? {|ship| ship.sunk? == true} == true
         break
       end
@@ -122,5 +121,4 @@ Prepare to meet Davy Jones, ye be in Davy Jones' locker by sundown!"
                                            `-.....-' "
     end
   end
-
 end

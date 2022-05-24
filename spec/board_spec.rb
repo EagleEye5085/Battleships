@@ -4,8 +4,14 @@ require './lib/cells'
 
 RSpec.describe Board do
 
+  it "board exists" do
+    board = Board.new(4, "D")
+
+    expect(board).to be_instance_of(Board)
+  end
+
   it 'board has hash of coordinates' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
 
     expect(board.cells.length).to eq(16)
@@ -14,7 +20,7 @@ RSpec.describe Board do
   end
 
    it 'valid_coordinate? checks if coordinates exist in cells' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
 
     expect(board.valid_coordinate?("A1")).to be(true)
@@ -22,7 +28,7 @@ RSpec.describe Board do
   end
 
   it 'valid_placement IDs incorrect placements based on ship size' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -33,7 +39,7 @@ RSpec.describe Board do
   end
 
   it 'valid_placement IDs incorrect placements based on non consecutive coordinates' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -45,7 +51,7 @@ RSpec.describe Board do
   end
 
   it 'valid_placement IDs correct placement' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -55,7 +61,7 @@ RSpec.describe Board do
   end
 
   it 'place works to place the same ship object in multiple cells' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
@@ -68,7 +74,7 @@ RSpec.describe Board do
   end
 
   it 'checks if valid_placement? catches overlapping placements' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
@@ -78,13 +84,13 @@ RSpec.describe Board do
   end
 
   it 'render prints the correct output' do
-    board = Board.new
+    board = Board.new(4, "D")
     board.create_cells
     cruiser = Ship.new("Cruiser", 3)
     board.place(cruiser, ["A1", "A2", "A3"])
     submarine = Ship.new("Submarine", 2)
-    
-    expect(board.render).to eq("  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n")
-    expect(board.render(true)).to eq("  1 2 3 4 \nA S S S . \nB . . . . \nC . . . . \nD . . . . \n")
+
+    expect(board.render).to eq("   1 2 3 4 \nA  . . . .\nB  . . . .\nC  . . . .\nD  . . . .\n")
+    expect(board.render(true)).to eq("   1 2 3 4 \nA  S S S .\nB  . . . .\nC  . . . .\nD  . . . .\n")
   end
 end

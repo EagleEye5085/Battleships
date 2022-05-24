@@ -22,7 +22,6 @@ attr_accessor :player_board, :comp_board, :input
   def call_shot
 
     loop do
-      # require "pry"; binding.pry
       p "Type in a coordinate to fire upon, if ye be feeling lucky."
       shot_called = gets.chomp.upcase
 
@@ -68,7 +67,6 @@ attr_accessor :player_board, :comp_board, :input
   end
 
   def display(top_board, bottom_board)
-    # require "pry"; binding.pry
     fancy_divider1 = '~^~^~ Computer Board‍ ~^~^~'
     comp_board = top_board.render
     fancy_divider2 = '~^~^~ Player Board ~^~^~'

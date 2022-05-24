@@ -6,7 +6,10 @@ require './lib/input'
 
 RSpec.describe Turn do
 
-  it 'displays both boards' do
+  it "Turn exists" do
     turn = Turn.new
-    expect(turn.display(turn.comp_board, turn.player_board)).to eq("~^~^~ Computer Board‍ ~^~^~\n  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n~^~^~ Player Board ~^~^~\n  1 2 3 4 \nA . . . . \nB . . . . \nC . . . . \nD . . . . \n~^~^~^~^~^~^~^~^~~^~^~^~")
+
+    expect(turn).to be_instance_of(Turn)
   end
+
+end
